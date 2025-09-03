@@ -1,5 +1,3 @@
----
-
 # 🧠 Red Neuronal Simple en TensorFlow
 
 Este proyecto implementa una **red neuronal básica** con **TensorFlow + Keras** para aprender la relación lineal entre valores de entrada (**x**) y resultados (**y**) según:
@@ -39,8 +37,8 @@ Se entrena un modelo con un único **input** y una sola **neurona densa** para a
 1. **Clonar repositorio**
 
    ```bash
-   git clone https://github.com/tuusuario/tu-repo.git
-   cd tu-repo
+   git clone https://github.com/RaulSalasSahuquillo/Red-Neuronal.git
+   cd Red-Neuronal
    ```
 
 2. **Crear entorno (opcional, recomendado)**
