@@ -167,3 +167,17 @@ print("El resultado redondeado es " + str(np.round(resultado_predict)))
   Depende del hardware. Ajusta `epochs` o baja `learning_rate` si ves inestabilidad (p. ej., `0.01` o `0.001`).
 
 ---
+
+## ⚙️ Entorno de desarrollo
+
+* **Google Colab:**
+  Sirvió para poder compartir el código a tiempo real con mi profesor.
+
+* **Visual Studio Code:**
+  Con él ejecuté el código y envié el repo a GitHub.
+
+---
+
+## 📋 Licencia
+
+Este repositorio no cuenta con ninguna licencia, por lo que sentíos libres de hacer modificaciones en el código.
