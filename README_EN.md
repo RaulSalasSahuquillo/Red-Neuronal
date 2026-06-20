@@ -92,16 +92,20 @@ graph LR
 
 ## 3. Software Structure and Source Code
 
-The repository is divided into two logical implementations to facilitate international accessibility and comprehension:
+The repository is structured professionally by separating the source code responsibilities from the project metadata:
 
 ```
+├── LICENSE             # MIT Open Source License
 ├── README.md           # Professional documentation in Spanish
 ├── README_EN.md        # Professional documentation in English (Current)
-├── main.py             # Python source code with detailed Spanish comments
-└── main_en.py          # Python source code with detailed English comments and prints
+├── requirements.txt    # Project package dependencies
+├── .gitignore          # File to exclude unwanted files in Git
+└── src/
+    ├── main.py         # Python source code with detailed Spanish comments
+    └── main_en.py      # Python source code with detailed English comments and prints
 ```
 
-### 3.1 Design Analysis of main.py / main_en.py
+### 3.1 Design Analysis of src/main.py / src/main_en.py
 Both scripts implement the same machine learning pipeline, dividing tasks as follows:
 
 1. **Dataset Declaration:** NumPy arrays of type `float`. The data type is explicitly specified (`dtype=float`) to match the 32-bit single-precision expectations of TensorFlow.
@@ -130,11 +134,11 @@ source venv/bin/activate
 ```
 
 ### 4.2 Installing Dependencies
-Install the required scientific computing toolkit:
+Install the dependencies declared in the requirements file:
 
 ```bash
 pip install --upgrade pip
-pip install tensorflow numpy matplotlib
+pip install -r requirements.txt
 ```
 
 ### 4.3 Running the Model
@@ -142,10 +146,10 @@ Run the script of your choice from the root directory:
 
 ```bash
 # Run the Spanish version
-python main.py
+python src/main.py
 
 # Run the English version
-python main_en.py
+python src/main_en.py
 ```
 
 #### Expected Console Output:
@@ -218,7 +222,7 @@ The rounded output matches the analytical resolution perfectly, validating the n
 ## 8. Troubleshooting Common Issues
 
 * **ModuleNotFoundError: No module named 'tensorflow'**
-  This error indicates that TensorFlow is not installed in the active environment. Ensure the virtual environment is activated (`source venv/bin/activate`) before running `pip install tensorflow`.
+  This error indicates that TensorFlow is not installed in the active environment. Ensure the virtual environment is activated (`source venv/bin/activate`) before running `pip install -r requirements.txt`.
 * **Poor training performance or instability**
   If you observe anomalous MSE fluctuations or if the computed output deviates significantly from 42, try reducing the optimizer learning rate to `0.01`, or set a random seed before model declaration (`tf.keras.utils.set_random_seed(42)`).
 
@@ -227,4 +231,4 @@ The rounded output matches the analytical resolution perfectly, validating the n
 ## 9. Development Environment and License
 
 * **Development Tools:** Model development and testing was performed using **Google Colab** (for interactive prototyping and real-time sharing) and **Visual Studio Code** (as the local integrated development environment and Git version control).
-* **License:** This project is distributed without any license restrictions, allowing free modification and usage without attribution requirements.
+* **License:** This project is distributed under the **MIT License**, allowing free commercial and private modifications and usage. See the [LICENSE](file:///home/rsalas/Documentos/python/Red%20Neuronal/LICENSE) file for more details.

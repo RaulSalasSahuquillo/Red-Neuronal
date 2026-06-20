@@ -92,16 +92,20 @@ graph LR
 
 ## 3. Estructura del Software y Código Fuente
 
-El repositorio se divide en dos implementaciones lógicas para facilitar el acceso y la comprensión internacional:
+El repositorio se estructura de manera profesional dividiendo las responsabilidades del código fuente y los metadatos del proyecto:
 
 ```
+├── LICENSE             # Licencia de código abierto MIT
 ├── README.md           # Documentación profesional en Español (Actual)
 ├── README_EN.md        # Documentación profesional en Inglés
-├── main.py             # Código fuente en Python con comentarios detallados en Español
-└── main_en.py          # Código fuente en Python con comentarios y salidas en Inglés
+├── requirements.txt    # Archivo de dependencias del proyecto
+├── .gitignore          # Archivo para excluir carpetas no deseadas en Git
+└── src/
+    ├── main.py         # Código fuente en Python con comentarios detallados en Español
+    └── main_en.py      # Código fuente en Python con comentarios y salidas en Inglés
 ```
 
-### 3.1 Análisis de Diseño de main.py / main_en.py
+### 3.1 Análisis de Diseño de src/main.py / src/main_en.py
 Ambos scripts implementan la misma canalización de Machine Learning distribuyendo las tareas de la siguiente manera:
 
 1. **Declaración del Dataset:** Arrays de tipo `float` de NumPy. Se especifica de manera explícita el tipo de dato (`dtype=float`) para que coincida con las expectativas de precisión simple de 32 bits de TensorFlow.
@@ -130,11 +134,11 @@ source venv/bin/activate
 ```
 
 ### 4.2 Instalación de Dependencias
-Instale el conjunto de herramientas de computación científica necesarias:
+Instale las dependencias declaradas en el archivo de requisitos:
 
 ```bash
 pip install --upgrade pip
-pip install tensorflow numpy matplotlib
+pip install -r requirements.txt
 ```
 
 ### 4.3 Ejecución del Modelo
@@ -142,10 +146,10 @@ Ejecute el script del idioma de su preferencia desde el directorio raíz:
 
 ```bash
 # Ejecutar la versión en español
-python main.py
+python src/main.py
 
 # Ejecutar la versión en inglés
-python main_en.py
+python src/main_en.py
 ```
 
 #### Salida Esperada en Consola:
@@ -218,7 +222,7 @@ El resultado redondeado coincide perfectamente con la resolución matemática an
 ## 8. Diagnóstico de Problemas Comunes
 
 * **ModuleNotFoundError: No module named 'tensorflow'**
-  Este error indica que la librería TensorFlow no se encuentra instalada en el entorno de ejecución activo. Asegúrese de activar el entorno virtual (`source venv/bin/activate`) antes de instalar las dependencias con `pip install tensorflow`.
+  Este error indica que la librería TensorFlow no se encuentra instalada en el entorno de ejecución activo. Asegúrese de activar el entorno virtual (`source venv/bin/activate`) antes de instalar las dependencias con `pip install -r requirements.txt`.
 * **Rendimiento e inestabilidad del entrenamiento**
   Si observa fluctuaciones anómalas en el MSE o que la salida calculada diverge significativamente de 42, intente reducir la tasa de aprendizaje en el optimizador a `0.01` o fije una semilla aleatoria de inicialización antes de declarar el modelo (`tf.keras.utils.set_random_seed(42)`).
 
@@ -227,4 +231,4 @@ El resultado redondeado coincide perfectamente con la resolución matemática an
 ## 9. Entorno de Desarrollo y Licencia
 
 * **Herramientas de Desarrollo:** El desarrollo e iteración del modelo se realizó empleando **Google Colab** (para validación interactiva y compartición en tiempo real) y **Visual Studio Code** (como entorno de desarrollo integrado local y control de versiones con Git).
-* **Licencia:** Este proyecto se distribuye sin restricciones de licencia, permitiendo modificaciones y usos libres sin requerir atribución.
+* **Licencia:** Este proyecto se distribuye bajo la **Licencia MIT**, permitiendo modificaciones y usos libres comerciales y privados. Consulte el archivo [LICENSE](file:///home/rsalas/Documentos/python/Red%20Neuronal/LICENSE) para más detalles.
